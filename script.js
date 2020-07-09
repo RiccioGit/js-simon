@@ -24,20 +24,37 @@ alert("Memorizza questi numeri " + randomNumbers);
 
 // settiamo 30 secondi di timer
 // l'utente deve inserire i numeri che ricorda utilizzando prompt
+// creo array per i tentativi
+
+var userChoose = [];
 
 setTimeout(function () {
 
+while (userChoose.length < 5) {
 
+  var newUserNumber = parseInt(prompt("Inserisci un numero: "))
 
-}, 3000);
+  if (!findItem(newUserNumber, userChoose) && !isNan(newUserNumber)) {
+    userChoose.push(newUserNumber);
+  }
 
+}
 
+console.log(userChoose);
+
+}, 30000);
+
+console.log(userChoose);
 
 
 // *_*_*_*_*_ AREA DELLE FUNZIONI _*_*_*_*_*
+
+//fun per generare numeri random
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// fun per cercare l'elemento in userChoose (findItem)
